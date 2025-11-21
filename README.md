@@ -16,3 +16,7 @@ LOGIN e Token;
 GET com Token no authoriztion Auth Type "Bearer Token";
 
 <img width="827" height="568" alt="Captura de tela 2025-11-20 232502" src="https://github.com/user-attachments/assets/bd50b3b6-29ba-4df1-842c-109b103facc0" />
+
+Os user de teste ja no Oracle criados;
+
+<img width="1401" height="84" alt="image" src="https://github.com/user-attachments/assets/f07f5014-f67b-46b2-9ea3-ce4c4685ad3e" />
