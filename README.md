@@ -9,7 +9,6 @@ Saúde Mental no Trabalho — API REST para registro de sinais de estresse, aute
 [![Oracle Database](https://img.shields.io/badge/Oracle_DB-Connected-F80000?logo=oracle&logoColor=white)](https://www.oracle.com/database/)
 [![JWT Security](https://img.shields.io/badge/Security-JWT-A833E6?logo=json-web-tokens&logoColor=white)](https://jwt.io/)
 [![Postman Tested](https://img.shields.io/badge/Tested-Postman-FF6C37?logo=postman&logoColor=white)](https://www.postman.com/)
-[![Status: WIP](https://img.shields.io/badge/status-WIP-yellow)]()
 
 ---
 
