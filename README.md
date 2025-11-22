@@ -1,22 +1,95 @@
-☕ MindSpace API Backend
+# MindSpace API Backend 🧠
 
-API desenvolvida em Spring Boot para gerenciar o bem-estar mental em ambientes de trabalho. 
-Tendo autenticação JWT e persistência em Oracle
+Saúde Mental no Trabalho — API REST para registro de sinais de estresse, autenticação e persistência em Oracle.  
 
-Cadastro, Login e token com GET feitos pelo POSTMAN:
+---
 
-CADASTRO;
+[![Java 21](https://img.shields.io/badge/Java-21-blue?logo=openjdk&logoColor=white)](https://www.java.com/)
+[![Spring Boot 3.x](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?logo=spring&logoColor=white)](https://spring.io/projects/spring-boot)
+[![Oracle Database](https://img.shields.io/badge/Oracle_DB-Connected-F80000?logo=oracle&logoColor=white)](https://www.oracle.com/database/)
+[![JWT Security](https://img.shields.io/badge/Security-JWT-A833E6?logo=json-web-tokens&logoColor=white)](https://jwt.io/)
+[![Postman Tested](https://img.shields.io/badge/Tested-Postman-FF6C37?logo=postman&logoColor=white)](https://www.postman.com/)
 
-<img width="741" height="324" alt="Captura de tela 2025-11-20 232151" src="https://github.com/user-attachments/assets/ebb9c9b1-3fa1-45bf-8fb3-09319f0c4caa" />
+---
 
-LOGIN e Token;
+## Sumário 🔍
+- [Visão Geral](#visão-geral)  
+- [Estrutura do Projeto](#estrutura-do-projeto)  
+- [Recursos Implementados](#recursos-implementados)  
+- [Pré-requisitos](#pré-requisitos)  
+- [Configuração](#configuração)  
+- [Executar](#executar)  
+- [Endpoints Principais](#endpoints-principais)  
+- [Integrantes](#integrantes)  
+- [Observações Técnicas](#observações-técnicas)
 
-<img width="817" height="475" alt="Captura de tela 2025-11-20 232301" src="https://github.com/user-attachments/assets/0d838e3b-b8bb-42f6-9746-9d7ad7243a9d" />
+---
 
-GET com Token no authoriztion Auth Type "Bearer Token";
+## Visão Geral 🔎
+API construída com Spring Boot seguindo arquitetura em camadas (controller → service → repository). Objetivo: registrar sinais de estresse, autenticar usuários com JWT e persistir dados em Oracle. 🙂
 
-<img width="827" height="568" alt="Captura de tela 2025-11-20 232502" src="https://github.com/user-attachments/assets/bd50b3b6-29ba-4df1-842c-109b103facc0" />
+---
 
-Os user de teste ja no Oracle criados;
+## Estrutura do projeto 🧩
+- `controllers/` — endpoints REST  
+- `services/` — regras de negócio  
+- `repositories/` — JPA/Hibernate + `JdbcTemplate` para chamadas diretas a procedures  
+- `dtos/` — validação (Bean Validation)
 
-<img width="1401" height="84" alt="image" src="https://github.com/user-attachments/assets/f07f5014-f67b-46b2-9ea3-ce4c4685ad3e" />
+---
+
+## Recursos Implementados ⚙️
+- Autenticação com JWT (Spring Security + Auth0 JWT) 🔐  
+- Hash de senhas com BCrypt 🔒  
+- Chamada de Stored Procedure crítica via `JdbcTemplate` (POST `/registros` → `PR_SINAL_ESTRESSE_INS`) 🧪  
+- Persistência JPA com mapeamento ajustado para padrão de nomes do Oracle (case sensitivity) 🗄️  
+- Consultas avançadas: paginação, ordenação (por `dtHora`) e filtros dinâmicos em `GET /registros` 📊  
+- Validação dos DTOs (Bean Validation) ✅  
+- Documentação via Swagger UI 🌐
+
+---
+
+## Pré-requisitos 🛠️
+- JDK 21  
+- Maven  
+- Instância Oracle acessível (credenciais no `application.properties`)
+
+---
+
+## Configuração ⚙️
+No arquivo `application.properties` (ou `application.yml`) configure:
+- `spring.datasource.url`  
+- `spring.datasource.username`  
+- `spring.datasource.password`  
+
+---
+
+## Executar ▶️
+No terminal:
+```bash
+mvn clean install
+mvn spring-boot:run
+```
+
+---
+
+## Endpoints Principais 🔗
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| POST   | `/auth/register` | Cria novo usuário (senha com BCrypt) 👤 |
+| POST   | `/auth/login`    | Autentica e retorna token JWT (Bearer) 🔑 |
+| POST   | `/registros`     | Registra sinal de estresse (executa stored procedure `PR_SINAL_ESTRESSE_INS`) 🧪 |
+| GET    | `/registros`     | Consulta paginada e ordenada 📋 |
+
+Swagger UI: http://localhost:8080/swagger-ui.html 🌍
+
+---
+
+## Integrantes 👥
+| Nome             | RM          |
+|------------------|-------------|
+| Henrique marques | RM 560698   |
+| Luan Noqueli     | RM 560313   |
+| Lucas Higuti     | RM 561120   |
+
+---
