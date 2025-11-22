@@ -26,6 +26,38 @@ public class AuthenticationController {
     @Autowired private UsuarioRepository repository;
     @Autowired private PasswordEncoder passwordEncoder; // BCrypt para hash!
 
+    public AuthenticationManager getManager() {
+        return manager;
+    }
+
+    public void setManager(AuthenticationManager manager) {
+        this.manager = manager;
+    }
+
+    public TokenService getTokenService() {
+        return tokenService;
+    }
+
+    public void setTokenService(TokenService tokenService) {
+        this.tokenService = tokenService;
+    }
+
+    public UsuarioRepository getRepository() {
+        return repository;
+    }
+
+    public void setRepository(UsuarioRepository repository) {
+        this.repository = repository;
+    }
+
+    public PasswordEncoder getPasswordEncoder() {
+        return passwordEncoder;
+    }
+
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
     // Endpoint de LOGIN
     @PostMapping("/login")
     public ResponseEntity<TokenResponse> login(@RequestBody @Valid LoginRequest dados) {

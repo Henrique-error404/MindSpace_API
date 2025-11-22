@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
-@Data
+
 @Entity
 @NoArgsConstructor
 @Table(name = "SESSAO_TRABALHO")
@@ -16,6 +16,54 @@ public class SessaoTrabalho {
     @SequenceGenerator(name = "SESSAO_TRABALHO_SEQ", sequenceName = "SESSAO_TRABALHO_SEQ", allocationSize = 1)
     @Column(name = "ID_SESSAO")
     private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getDtInicio() {
+        return dtInicio;
+    }
+
+    public void setDtInicio(LocalDateTime dtInicio) {
+        this.dtInicio = dtInicio;
+    }
+
+    public LocalDateTime getDtFim() {
+        return dtFim;
+    }
+
+    public void setDtFim(LocalDateTime dtFim) {
+        this.dtFim = dtFim;
+    }
+
+    public String getModoTrabalho() {
+        return modoTrabalho;
+    }
+
+    public void setModoTrabalho(String modoTrabalho) {
+        this.modoTrabalho = modoTrabalho;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     @Column(name = "DT_INICIO", nullable = false)
     private LocalDateTime dtInicio;
