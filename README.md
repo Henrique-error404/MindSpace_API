@@ -1,22 +1,46 @@
-☕ MindSpace API Backend
+🧘 MindSpace API Backend
+🧠 Saúde Mental no Trabalho do Futuro
+1. Descrição Geral
+O MindSpace API é o coração da solução de bem-estar digital. É uma API RESTful desenvolvida em Java Spring Boot cujo principal objetivo é gerenciar os dados de estresse do usuário (SINAL_ESTRESSE) e fornecer acesso seguro e paginado a essas informações. A API é integrada ao banco de dados Oracle via Spring Data JPA.
 
-API desenvolvida em Spring Boot para gerenciar o bem-estar mental em ambientes de trabalho. 
-Tendo autenticação JWT e persistência em Oracle
+2. Integrantes e Funções
+Nome	Função no Projeto
+Henrique	Backend Lead (Java Advanced): Arquitetura da API REST, Implementação do JWT, Integração com Stored Procedure, Paginação e Filtros.
+[Colega 1]	DBA & Data Modeler: Estruturação completa do Banco de Dados Oracle (DDL, Stored Procedures e Sequences).
+[Colega 2]	[Definir Front-end/Documentação/Apresentação]
 
-Cadastro, Login e token com GET feitos pelo POSTMAN:
+Exportar para as Planilhas
 
-CADASTRO;
+3. Evoluções & Requisitos Técnicos
+Esta entrega atendeu integralmente aos requisitos técnicos do projeto, focando em robustez e segurança:
 
-<img width="741" height="324" alt="Captura de tela 2025-11-20 232151" src="https://github.com/user-attachments/assets/ebb9c9b1-3fa1-45bf-8fb3-09319f0c4caa" />
+Arquitetura em Camadas: Estrutura organizada (controller, service, repository, model, dto).
 
-LOGIN e Token;
+Autenticação JWT: Implementação completa da segurança Stateless com Spring Security e geração de token via Auth0 JWT (HS256).
 
-<img width="817" height="475" alt="Captura de tela 2025-11-20 232301" src="https://github.com/user-attachments/assets/0d838e3b-b8bb-42f6-9746-9d7ad7243a9d" />
+Persistência (JPA & Oracle): Mapeamento e transações ajustadas para lidar com a case sensitivity do Oracle e geração de SEQUENCE de ID.
 
-GET com Token no authoriztion Auth Type "Bearer Token";
+Integração Crítica: O endpoint POST /registros chama a Stored Procedure PR_SINAL_ESTRESSE_INS utilizando o JdbcTemplate.
 
-<img width="827" height="568" alt="Captura de tela 2025-11-20 232502" src="https://github.com/user-attachments/assets/bd50b3b6-29ba-4df1-842c-109b103facc0" />
+Consultas Avançadas: O endpoint GET /registros implementa Paginação, Ordenação (por dtHora) e está preparado para Filtros Dinâmicos (JpaSpecificationExecutor).
 
-Os user de teste ja no Oracle criados;
+Bean Validation: Validação de dados de entrada (@Valid) nos DTOs de autenticação e registro.
 
-<img width="1401" height="84" alt="image" src="https://github.com/user-attachments/assets/f07f5014-f67b-46b2-9ea3-ce4c4685ad3e" />
+⚙️ Como Testar a API Localmente
+Pré-requisitos
+JDK 21
+
+Maven
+
+Acesso ao banco de dados Oracle (RM e Senha configurados no application.properties).
+
+Fluxo de Teste (Postman)
+POST /auth/register: Crie um novo usuário.
+
+POST /auth/login: Obtenha o Token JWT (Header Authorization: Bearer).
+
+POST /registros: Envie um registro de humor (testa a Stored Procedure).
+
+GET /registros: Visualize os dados paginados e ordenados (testa a Paginação).
+
+A documentação interativa da API (Swagger UI) está disponível em: http://localhost:8080/swagger-ui.html
