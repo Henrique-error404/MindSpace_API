@@ -54,10 +54,11 @@ No arquivo application.properties (ou application.yml) configure:
 Swagger UI: http://localhost:8080/swagger-ui.html
 
 ## Integrantes
-|------|------------------|
-| Henrique | RM560698 |
-| Luan | RM |
-| Japa | RM |
+| Nome     | RM            |
+|----------|---------------|
+| Henrique | RM560698      |
+| Luan     | RM (pendente) |
+| Japa     | RM (pendente) |
 
 ## Observações Técnicas
 - A procedure crítica é invocada diretamente via JdbcTemplate para garantir controle e performance transacional.  
