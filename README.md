@@ -87,17 +87,10 @@ Swagger UI: http://localhost:8080/swagger-ui.html 🌍
 ---
 
 ## Integrantes 👥
-| Nome     | RM            |
-|----------|---------------|
-| Henrique | RM560698      |
-| Luan     | RM (pendente) |
-| Japa     | RM (pendente) |
+| Nome             | RM          |
+|------------------|-------------|
+| Henrique marques | RM 560698   |
+| Luan Noqueli     | RM 560313   |
+| Lucas Higuti     | RM 561120   |
 
 ---
-
-## Observações Técnicas 📝
-- A procedure crítica é invocada diretamente via `JdbcTemplate` para garantir controle e performance transacional. ⚠️  
-- Ajuste dos nomes das entidades (`@Entity`) para maiúsculas conforme convenção Oracle para evitar problemas de case sensitivity. 🔠  
-- Garanta que o usuário do banco possua permissões para executar a procedure e manipular sequences. ✅
-
-Exportar para as Planilhas (se necessário): mantenha os metadados de rota e contribuições em CSV/Excel a partir das tabelas acima. 📎
