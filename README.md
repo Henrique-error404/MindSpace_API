@@ -42,12 +42,6 @@ No arquivo application.properties (ou application.yml) configure:
 - spring.datasource.password  
 - spring.jpa.hibernate.naming.physical-strategy (se aplicável)
 
-## Executar
-No terminal:
-```bash
-mvn clean install
-mvn spring-boot:run
-```
 
 ## Endpoints Principais
 | Método | Endpoint | Descrição |
@@ -60,11 +54,10 @@ mvn spring-boot:run
 Swagger UI: http://localhost:8080/swagger-ui.html
 
 ## Integrantes
-| Nome | Função principal |
 |------|------------------|
-| Henrique | Backend Lead (Java Advanced): JWT, integração com stored procedure, consultas avançadas |
-| [Colega 1] | DBA & Data Modeler: esquema Oracle, stored procedures, sequences |
-| [Colega 2] | [Definir função — ex: Documentação / Frontend] |
+| Henrique | RM560698 |
+| Luan | RM |
+| Japa | RM |
 
 ## Observações Técnicas
 - A procedure crítica é invocada diretamente via JdbcTemplate para garantir controle e performance transacional.  
