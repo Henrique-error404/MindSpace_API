@@ -18,7 +18,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfigurations {
 
-    // O SecurityFilter será criado a seguir
     @Autowired
     private SecurityFilter securityFilter;
 
@@ -31,6 +30,11 @@ public class SecurityConfigurations {
                     // Rotas de Autenticação e Swagger LIBERADAS
                     req.requestMatchers("/auth/**").permitAll();
                     req.requestMatchers("/v3/api-docs/**", "/swagger-ui/**").permitAll();
+
+                    // --- NOVA REGRA: LIBERAÇÃO DO IOT ---
+                    // Permite que o Node-RED e o Mobile acessem /registros sem login
+                    req.requestMatchers("/registros/**").permitAll();
+
                     // Todas as outras rotas EXIGEM autenticação
                     req.anyRequest().authenticated();
                 })
