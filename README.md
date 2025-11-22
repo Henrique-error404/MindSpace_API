@@ -1,5 +1,7 @@
 # MindSpace API Backend 🧠
 
+Saúde Mental no Trabalho — API REST para registro de sinais de estresse, autenticação e persistência em Oracle.  
+
 ---
 
 [![Java 21](https://img.shields.io/badge/Java-21-blue?logo=openjdk&logoColor=white)](https://www.java.com/)
@@ -8,10 +10,6 @@
 [![JWT Security](https://img.shields.io/badge/Security-JWT-A833E6?logo=json-web-tokens&logoColor=white)](https://jwt.io/)
 [![Postman Tested](https://img.shields.io/badge/Tested-Postman-FF6C37?logo=postman&logoColor=white)](https://www.postman.com/)
 [![Status: WIP](https://img.shields.io/badge/status-WIP-yellow)]()
-
----
-
-Saúde Mental no Trabalho — API REST para registro de sinais de estresse, autenticação e persistência em Oracle.  
 
 ---
 
