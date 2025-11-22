@@ -61,7 +61,6 @@ No arquivo `application.properties` (ou `application.yml`) configure:
 - `spring.datasource.url`  
 - `spring.datasource.username`  
 - `spring.datasource.password`  
-- `spring.jpa.hibernate.naming.physical-strategy` (se aplicável)
 
 ---
 
@@ -80,7 +79,7 @@ mvn spring-boot:run
 | POST   | `/auth/register` | Cria novo usuário (senha com BCrypt) 👤 |
 | POST   | `/auth/login`    | Autentica e retorna token JWT (Bearer) 🔑 |
 | POST   | `/registros`     | Registra sinal de estresse (executa stored procedure `PR_SINAL_ESTRESSE_INS`) 🧪 |
-| GET    | `/registros?page=0&sort=dtHora,desc` | Consulta paginada e ordenada por `dtHora` 📋 |
+| GET    | `/registros`     | Consulta paginada e ordenada 📋 |
 
 Swagger UI: http://localhost:8080/swagger-ui.html 🌍
 
