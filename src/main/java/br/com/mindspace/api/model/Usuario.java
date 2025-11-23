@@ -10,9 +10,8 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
-@Data
+@Data // Mantido por documentação
 @Entity
-@NoArgsConstructor
 @Table(name = "USUARIOS")
 public class Usuario implements UserDetails {
 
@@ -43,7 +42,11 @@ public class Usuario implements UserDetails {
     @Column(name = "DATA_CADASTRO")
     private LocalDate dataCadastro;
 
-    // --- MÉTODOS MANUAIS (Correção do Erro do Lombok) ---
+    // --- CONSTRUTOR VAZIO MANUAL (CORREÇÃO DE JPA/LOMBOK) ---
+    public Usuario() {
+    }
+
+    // --- MÉTODOS MANUAIS E IMPLEMENTAÇÕES (Garantia de Compilação) ---
 
     public String getEmail() {
         return this.email;
@@ -53,18 +56,12 @@ public class Usuario implements UserDetails {
         return this.id;
     }
 
-    // --- Implementação UserDetails (Necessário para JWT) ---
-
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Define o papel/permissão do usuário
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    public String getUsername() {
+        return email; // O email é a credencial de login
     }
 
-    @Override
-    public String getPassword() {
-        return senha; // Retorna o hash da senha
-    }
+    // --- GETTERS E SETTERS COMPLETOS (Mantidos por robustez) ---
 
     public void setId(Long id) {
         this.id = id;
@@ -80,6 +77,11 @@ public class Usuario implements UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String getPassword() {
+        return senha; // Retorna o hash da senha
     }
 
     public String getSenha() {
@@ -122,9 +124,10 @@ public class Usuario implements UserDetails {
         this.dataCadastro = dataCadastro;
     }
 
+    // --- Implementação UserDetails (Spring Security) ---
     @Override
-    public String getUsername() {
-        return email; // O email é a credencial de login
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override public boolean isAccountNonExpired() { return true; }

@@ -3,11 +3,11 @@ package br.com.mindspace.api.dto.request;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-
+// Removemos o Lombok para evitar erros de compilação
 
 public class UsuarioCadastroRequest {
 
+    // --- CAMPOS (Declaração Única) ---
     @NotBlank(message = "O nome é obrigatório.")
     private String nome;
 
@@ -21,46 +21,52 @@ public class UsuarioCadastroRequest {
     @NotNull(message = "O cargo é obrigatório.")
     private String cargo;
 
-    public @NotBlank(message = "O nome é obrigatório.") String getNome() {
+    @NotNull(message = "O modo de trabalho é obrigatório.")
+    private String modoTrabalho;
+
+    // --- CONSTRUTOR VAZIO (Obrigatório para o Spring/Jackson) ---
+    public UsuarioCadastroRequest() {
+    }
+
+    // --- GETTERS E SETTERS MANUAIS (Para corrigir o erro de compilação) ---
+
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(@NotBlank(message = "O nome é obrigatório.") String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public @NotBlank(message = "O e-mail é obrigatório.") @Email(message = "O formato do e-mail é inválido.") String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(@NotBlank(message = "O e-mail é obrigatório.") @Email(message = "O formato do e-mail é inválido.") String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public @NotBlank(message = "A senha é obrigatória.") String getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(@NotBlank(message = "A senha é obrigatória.") String senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 
-    public @NotNull(message = "O cargo é obrigatório.") String getCargo() {
+    public String getCargo() {
         return cargo;
     }
 
-    public void setCargo(@NotNull(message = "O cargo é obrigatório.") String cargo) {
+    public void setCargo(String cargo) {
         this.cargo = cargo;
     }
 
-    public @NotNull(message = "O modo de trabalho é obrigatório.") String getModoTrabalho() {
+    public String getModoTrabalho() {
         return modoTrabalho;
     }
 
-    public void setModoTrabalho(@NotNull(message = "O modo de trabalho é obrigatório.") String modoTrabalho) {
+    public void setModoTrabalho(String modoTrabalho) {
         this.modoTrabalho = modoTrabalho;
     }
-
-    @NotNull(message = "O modo de trabalho é obrigatório.")
-    private String modoTrabalho;
 }
