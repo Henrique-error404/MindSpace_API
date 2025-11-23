@@ -82,6 +82,16 @@ mvn spring-boot:run
 | GET    | `/registros`     | Consulta paginada e ordenada 📋 |
 
 Swagger UI: http://localhost:8080/swagger-ui.html 🌍
+---
+## 🧪 Evidências de Testes (Postman)
+
+Abaixo estão as evidências de funcionamento dos principais endpoints da API, demonstrando o fluxo de autenticação e CRUD.
+
+
+![Captura_de_tela_2025-11-20_232151](https://github.com/user-attachments/assets/04584954-a293-4cba-811d-4d9133fdc328)
+![Captura_de_tela_2025-11-20_232301](https://github.com/user-attachments/assets/b0d135f0-55a5-4e1e-8898-082e22c78f75)
+![Captura_de_tela_2025-11-20_232502](https://github.com/user-attachments/assets/f0c5429d-1b3a-4ccb-9c32-d77eeed2cf03)
+
 
 ---
 
